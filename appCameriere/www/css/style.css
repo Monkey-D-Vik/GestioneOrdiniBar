@@ -1,0 +1,221 @@
+/* Variabili colori */
+:root {
+    --primary-color: #4CAF50;
+    --primary-dark: #45a049;
+    --danger-color: #dc3545;
+    --danger-dark: #c82333;
+    --bg-main: #f5f5f5;
+    --bg-card: #ffffff;
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --border-color: #dddddd;
+}
+
+/* Reset base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Stili base */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.6;
+    padding: 20px;
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+h1 {
+    color: var(--text-primary);
+    margin-bottom: 20px;
+}
+
+/* Form e input */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 16px;
+}
+
+/* Sezioni */
+section {
+    background: var(--bg-card);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Bottoni */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.2s;
+}
+
+button[type="submit"] {
+    background-color: var(--primary-color);
+    color: white;
+    width: 100%;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--primary-dark);
+}
+
+/* Lista dettagli ordine */
+#listaDettagli {
+    margin-top: 20px;
+}
+
+.dettaglio-item {
+    background: var(--bg-card);
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid var(--border-color);
+}
+
+.dettaglio-item p {
+    margin: 5px 0;
+}
+
+.dettaglio-controls {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    align-items: center;
+}
+
+.dettaglio-controls input {
+    width: 80px;
+    padding: 8px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    text-align: center;
+}
+
+.delete-btn {
+    background-color: var(--danger-color);
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: var(--danger-dark);
+}
+
+/* Totale ordine */
+.totale-ordine {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 2px solid var(--border-color);
+    text-align: right;
+}
+
+#totaleOrdine {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Responsive */
+@media screen and (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .dettaglio-controls {
+        flex-direction: column;
+    }
+
+    .dettaglio-controls input,
+    .dettaglio-controls button {
+        width: 100%;
+    }
+
+    .dettaglio-item {
+        padding: 12px;
+    }
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --bg-main: #1a1a1a;
+        --bg-card: #2d2d2d;
+        --text-primary: #ffffff;
+        --text-secondary: #cccccc;
+        --border-color: #444444;
+    }
+
+    .form-group input,
+    .form-group select {
+        background-color: #3d3d3d;
+        color: white;
+        border-color: #555555;
+    }
+
+    button:not([type="submit"]):not(.delete-btn) {
+        background-color: #4d4d4d;
+        color: white;
+    }
+}
+
+/* Animazioni */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.dettaglio-item {
+    animation: fadeIn 0.3s ease;
+}
+
+/* Miglioramenti accessibilità */
+button:focus,
+input:focus,
+select:focus {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Stati di caricamento e messaggi */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+.error-message {
+    color: var(--danger-color);
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+.success-message {
+    color: var(--primary-color);
+    font-size: 0.9em;
+    margin-top: 5px;
+} 
